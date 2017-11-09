@@ -42,5 +42,15 @@ $(function () {
        }
    });
 
-
+  $form.on("success.form.bv",function (e) {
+      e.preventDefault();
+      $.ajax({
+          type:'post',
+          ulr:"/employee/employeeLogin",
+          data:$form.serialize(),
+          success:function (data) {
+              console.log(data)
+          }
+      })
+  })
 })
